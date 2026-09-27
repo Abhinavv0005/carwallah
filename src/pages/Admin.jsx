@@ -34,7 +34,7 @@ export default function Admin() {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        if (password === 'Nagar#@503') {
+        if (password === 'Website#@503') {
             setIsLoggedIn(true);
             setMessage({ text: '', type: '' });
         } else {
