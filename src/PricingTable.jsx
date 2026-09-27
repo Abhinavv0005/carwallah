@@ -32,12 +32,12 @@ export default function PricingTable() {
                     </p>
                 </div>
                 
-                {/* Mobile touch-scroll container with momentum scrolling */}
-                <div className="rounded-2xl border border-[#E8E3DA] shadow-[0_8px_40px_rgba(0,0,0,0.03)] bg-white overflow-x-auto select-none touch-pan-x [-webkit-overflow-scrolling:touch]">
+                {/* Scroll container with proper touch action to prevent screen lockups */}
+                <div className="rounded-2xl border border-[#E8E3DA] shadow-[0_8px_40px_rgba(0,0,0,0.03)] bg-white overflow-x-auto [touch-action:pan-x] [-webkit-overflow-scrolling:touch]">
                     <table className="w-full text-left border-collapse min-w-[650px] md:min-w-[800px]">
                         <thead>
                             <tr className="bg-[#EAE4D8] text-[#2C2926] text-xs md:text-sm uppercase tracking-wider">
-                                <th className="p-4 md:p-5 border-b border-[#D9D3C7] font-bold sticky left-0 bg-[#EAE4D8] z-10">Car Models</th>
+                                <th className="p-4 md:p-5 border-b border-[#D9D3C7] font-bold sticky left-0 bg-[#EAE4D8] z-10 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] md:shadow-none">Car Models</th>
                                 <th className="p-4 md:p-5 border-b border-[#D9D3C7] font-bold whitespace-nowrap">01 To 04 Days</th>
                                 <th className="p-4 md:p-5 border-b border-[#D9D3C7] font-bold whitespace-nowrap">05 To 10 Days</th>
                                 <th className="p-4 md:p-5 border-b border-[#D9D3C7] font-bold whitespace-nowrap">11 To 20 Days</th>
