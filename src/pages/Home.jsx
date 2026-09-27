@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import PricingTable from "../components/PricingTable";
+import PricingTable from "../PricingTable";
 
 const carsList = [
     { name: 'BALENO', image: 'img/BALENO.png' },
@@ -21,8 +21,6 @@ export default function Home() {
     const navigate = useNavigate();
     
     // State Management
-    const [rates, setRates] = useState([]);
-    const [loadingRates, setLoadingRates] = useState(true);
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedCar, setSelectedCar] = useState('Car');
     const [showNotification, setShowNotification] = useState(false);
@@ -37,13 +35,6 @@ export default function Home() {
     useEffect(() => {
         // Handle Preloader
         setTimeout(() => setPreloaderOpen(false), 1700);
-
-        // Fetch Rates
-        fetch('/rates.json')
-            .then(res => res.json())
-            .then(data => { setRates(data); setLoadingRates(false); })
-            .catch(() => setLoadingRates(false));
-
         // 5-second notification
         setTimeout(() => setShowNotification(true), 5000);
     }, []);
@@ -53,7 +44,7 @@ export default function Home() {
         const newCount = adminClicks + 1;
         setAdminClicks(newCount);
         if (newCount === 5) navigate('/admin');
-        setTimeout(() => setAdminClicks(0), 2000); // reset after 2s
+        setTimeout(() => setAdminClicks(0), 2000); 
     };
 
     const openBookingModal = (carName) => {
@@ -99,7 +90,6 @@ export default function Home() {
 
             {/* Hero */}
             <section id="home" className="h-[600px] flex items-center relative overflow-hidden bg-[#0F172A]">
-                {/* Add your inline styles for hero-bg here or keep in index.css */}
                 <div className="container mx-auto px-6 relative z-10 text-white">
                     <h1 className="text-5xl font-serif font-bold mb-4 leading-tight">Welcome To <br />Zoom Cars</h1>
                     <p className="text-lg text-gray-200 mb-8 max-w-lg">Reliable and affordable car rental services in Delhi NCR.</p>
@@ -124,19 +114,8 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Pricing Table */}
-            {/* Packages Section */}
-            <section id="packages" className="py-20 bg-gray-50">
-               {/* ... existing packages code ... */}
-            </section>
-
             {/* Imported Systematic Pricing Table */}
             <PricingTable />
-
-            {/* Contact Form */}
-            <section id="contact" className="py-20 bg-gray-50">
-               {/* ... existing contact code ... */}
-            </section>
 
             {/* Contact Form */}
             <section id="contact" className="py-20 bg-gray-50">
