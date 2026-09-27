@@ -25,7 +25,6 @@ export default function Home() {
     const [selectedCar, setSelectedCar] = useState('Car');
     const [showNotification, setShowNotification] = useState(false);
     const [adminClicks, setAdminClicks] = useState(0);
-    const [preloaderOpen, setPreloaderOpen] = useState(true);
 
     // Form State
     const [bookingForm, setBookingForm] = useState({ name: '', phone: '', date: '', days: '' });
@@ -33,8 +32,6 @@ export default function Home() {
 
     // Effects
     useEffect(() => {
-        // Handle Preloader
-        setTimeout(() => setPreloaderOpen(false), 1700);
         // 5-second notification
         setTimeout(() => setShowNotification(true), 5000);
     }, []);
@@ -68,13 +65,6 @@ export default function Home() {
     return (
         <div className="font-sans bg-gray-50 relative overflow-x-hidden w-full">
             
-            {/* Preloader */}
-            {preloaderOpen && (
-                <div className="fixed inset-0 z-[99999] bg-[#0F172A] flex items-center justify-center transition-opacity duration-700">
-                    <img src="img/transparent-car.png" alt="Loading..." className="animate-[driveAcross_4s_infinite] w-64 md:w-80 absolute" />
-                </div>
-            )}
-
             {/* Header (Premium Glassmorphism) */}
             <header className="fixed w-full top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all">
                 <div className="w-full max-w-[1600px] mx-auto px-6 py-4 flex justify-between items-center">
