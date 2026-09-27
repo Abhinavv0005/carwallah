@@ -1,140 +1,73 @@
-import React from 'react';
-
-// The exact data array, unchanged
-const ratesData = [
-    {
-        "model": "ALTROZ",
-        "days_1_4": "2000",
-        "days_5_10": "1700",
-        "days_11_20": "1500",
-        "month": "1300"
-    },
-    {
-        "model": "SWIFT",
-        "days_1_4": "2000",
-        "days_5_10": "1800",
-        "days_11_20": "1600",
-        "month": "1400"
-    },
-    {
-        "model": "BALENO",
-        "days_1_4": "2200",
-        "days_5_10": "1900",
-        "days_11_20": "1700",
-        "month": "1500"
-    },
-    {
-        "model": "FRONX",
-        "days_1_4": "2500",
-        "days_5_10": "2300",
-        "days_11_20": "2100",
-        "month": "1900"
-    },
-    {
-        "model": "VENUE",
-        "days_1_4": "2700",
-        "days_5_10": "2500",
-        "days_11_20": "2300",
-        "month": "2100"
-    },
-    {
-        "model": "BREZZA",
-        "days_1_4": "2800",
-        "days_5_10": "2600",
-        "days_11_20": "2400",
-        "month": "2200"
-    },
-    {
-        "model": "GRAND VITARA",
-        "days_1_4": "3500",
-        "days_5_10": "3300",
-        "days_11_20": "3100",
-        "month": "2900"
-    },
-    {
-        "model": "JEEP COMPAS",
-        "days_1_4": "3700",
-        "days_5_10": "3500",
-        "days_11_20": "3300",
-        "month": "3100"
-    },
-    {
-        "model": "TATA SAFARI",
-        "days_1_4": "4200",
-        "days_5_10": "4000",
-        "days_11_20": "3800",
-        "month": "3600"
-    },
-    {
-        "model": "THAR",
-        "days_1_4": "4500",
-        "days_5_10": "4300",
-        "days_11_20": "4100",
-        "month": "3900"
-    },
-    {
-        "model": "SCORPIO CLASSIC",
-        "days_1_4": "4500",
-        "days_5_10": "4300",
-        "days_11_20": "4100",
-        "month": "3900"
-    },
-    {
-        "model": "SCORPIO N",
-        "days_1_4": "5000",
-        "days_5_10": "4800",
-        "days_11_20": "4600",
-        "month": "4400"
-    },
-    {
-        "model": "THAR ROX",
-        "days_1_4": "5000",
-        "days_5_10": "4800",
-        "days_11_20": "4600",
-        "month": "4400"
-    },
-    {
-        "model": "Defender",
-        "days_1_4": "80000",
-        "days_5_10": "70000",
-        "days_11_20": "60000",
-        "month": "40000"
-    },
-    {
-        "model": "Fortuner",
-        "days_1_4": "12000",
-        "days_5_10": "10000",
-        "days_11_20": "9000",
-        "month": "7000"
-    }
-];
+import React, { useState, useEffect } from 'react';
 
 export default function PricingTable() {
+    const [ratesData, setRatesData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    // Fetch dynamic rates from your Cloudflare API instead of using hardcoded data
+    useEffect(() => {
+        fetch('/api/rates')
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to fetch');
+                return res.json();
+            })
+            .then(data => {
+                // Ensure data is an array before setting it
+                setRatesData(Array.isArray(data) ? data : []);
+                setIsLoading(false);
+            })
+            .catch(err => {
+                console.error("Error fetching rates:", err);
+                setIsLoading(false);
+            });
+    }, []);
+
     return (
-        <section className="py-12 bg-white">
-            <div className="container mx-auto px-6 overflow-x-auto">
-                <table className="w-full text-left border-collapse min-w-[800px]">
-                    <thead>
-                        <tr className="bg-[#0F172A] text-white text-sm uppercase tracking-wider">
-                            <th className="p-4 border-b border-gray-700">CARS MODELS</th>
-                            <th className="p-4 border-b border-gray-700">01 TO 04 DAYS</th>
-                            <th className="p-4 border-b border-gray-700">05 TO 10 DAYS</th>
-                            <th className="p-4 border-b border-gray-700">11 TO 20 DAYS</th>
-                            <th className="p-4 border-b border-gray-700">01 MONTH</th>
-                        </tr>
-                    </thead>
-                    <tbody className="text-gray-800 text-sm bg-[#fcfbf5]">
-                        {ratesData.map((rate, index) => (
-                            <tr key={index} className="border-b border-gray-200 hover:bg-gray-100 transition">
-                                <td className="p-4 font-bold">{rate.model}</td>
-                                <td className="p-4">₹{rate.days_1_4}</td>
-                                <td className="p-4">₹{rate.days_5_10}</td>
-                                <td className="p-4">₹{rate.days_11_20}</td>
-                                <td className="p-4">₹{rate.month}</td>
+        <section className="py-24 bg-[#FDFBF7] w-full">
+            <div className="w-full max-w-[1200px] mx-auto px-6 md:px-12 overflow-x-auto">
+                <div className="text-center mb-12">
+                    <h2 className="text-4xl font-serif font-bold text-[#2C2926]">Tariff <span className="text-[#D4AF37]">Plans</span></h2>
+                    <div className="w-24 h-1 bg-[#D4AF37] mx-auto mt-4 rounded-full"></div>
+                </div>
+                
+                <div className="rounded-2xl border border-[#E8E3DA] shadow-[0_8px_40px_rgba(0,0,0,0.03)] overflow-hidden bg-white">
+                    <table className="w-full text-left border-collapse min-w-[800px]">
+                        <thead>
+                            <tr className="bg-[#EAE4D8] text-[#2C2926] text-sm uppercase tracking-wider">
+                                <th className="p-5 border-b border-[#D9D3C7] font-bold">Car Models</th>
+                                <th className="p-5 border-b border-[#D9D3C7] font-bold">01 To 04 Days</th>
+                                <th className="p-5 border-b border-[#D9D3C7] font-bold">05 To 10 Days</th>
+                                <th className="p-5 border-b border-[#D9D3C7] font-bold">11 To 20 Days</th>
+                                <th className="p-5 border-b border-[#D9D3C7] font-bold">01 Month</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody className="text-[#5C5751] text-sm bg-white">
+                            {isLoading ? (
+                                <tr>
+                                    <td colSpan="5" className="p-8 text-center text-[#8A847A] font-medium">
+                                        Loading premium fleet pricing...
+                                    </td>
+                                </tr>
+                            ) : ratesData.length > 0 ? (
+                                ratesData.map((rate, index) => (
+                                    <tr key={index} className="border-b border-[#E8E3DA] hover:bg-[#F5F2EB] transition-colors duration-300">
+                                        <td className="p-5 font-bold text-[#2C2926]">{rate.model}</td>
+                                        <td className="p-5">₹{rate.days_1_4}</td>
+                                        <td className="p-5">₹{rate.days_5_10}</td>
+                                        <td className="p-5">₹{rate.days_11_20}</td>
+                                        <td className="p-5">₹{rate.month}</td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan="5" className="p-8 text-center text-[#8A847A] font-medium">
+                                        No pricing data available at the moment.
+                                    </td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
     );
