@@ -66,7 +66,7 @@ export default function Home() {
     };
 
     return (
-        <div className="font-sans bg-white relative overflow-x-hidden">
+        <div className="font-sans bg-gray-50 relative overflow-x-hidden w-full">
             
             {/* Preloader */}
             {preloaderOpen && (
@@ -75,38 +75,56 @@ export default function Home() {
                 </div>
             )}
 
-            {/* Header */}
-            <header className="bg-white shadow-md sticky top-0 z-40">
-                <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+            {/* Header (Premium Glassmorphism) */}
+            <header className="fixed w-full top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all">
+                <div className="w-full max-w-[1600px] mx-auto px-6 py-4 flex justify-between items-center">
                     <img src="img/logo.png" alt="Zoom Cars" className="h-12 md:h-16 object-contain" />
-                    <nav className="hidden md:flex space-x-8 font-semibold text-gray-800">
-                        <a href="#home" className="hover:text-[#D4AF37]">Home</a>
-                        <a href="#packages" className="hover:text-[#D4AF37]">Packages</a>
-                        <a href="#contact" className="hover:text-[#D4AF37]">Contact Us</a>
+                    <nav className="hidden md:flex space-x-10 font-medium text-gray-700">
+                        <a href="#home" className="hover:text-[#D4AF37] transition-colors">Home</a>
+                        <a href="#packages" className="hover:text-[#D4AF37] transition-colors">Packages</a>
+                        <a href="#contact" className="hover:text-[#D4AF37] transition-colors">Contact Us</a>
                     </nav>
-                    <a href="tel:+919667597460" className="bg-[#0F172A] text-white px-4 py-2 md:px-8 md:py-3 rounded-md font-bold shadow hover:bg-gray-800">Call Now</a>
+                    <a href="tel:+919667597460" className="bg-gradient-to-r from-[#0F172A] to-slate-800 text-white px-6 py-2.5 md:px-8 md:py-3 rounded-full font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">Call Now</a>
                 </div>
             </header>
 
-            {/* Hero */}
-            <section id="home" className="h-[600px] flex items-center relative overflow-hidden bg-[#0F172A]">
-                <div className="container mx-auto px-6 relative z-10 text-white">
-                    <h1 className="text-5xl font-serif font-bold mb-4 leading-tight">Welcome To <br />Zoom Cars</h1>
-                    <p className="text-lg text-gray-200 mb-8 max-w-lg">Reliable and affordable car rental services in Delhi NCR.</p>
+            {/* Hero (Full Width, Premium Gradient) */}
+            <section id="home" className="min-h-[80vh] flex items-center relative overflow-hidden bg-gradient-to-br from-[#0F172A] via-[#1a2333] to-[#0F172A] w-full pt-20">
+                <div className="w-full max-w-[1600px] mx-auto px-6 relative z-10 text-white flex flex-col md:flex-row items-center justify-between">
+                    <div className="w-full md:w-1/2 text-center md:text-left py-16">
+                        <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight tracking-tight">
+                            Welcome To <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-yellow-200">Zoom Cars</span>
+                        </h1>
+                        <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-lg mx-auto md:mx-0 font-light tracking-wide leading-relaxed">
+                            Experience the luxury of freedom. Reliable and premium car rental services across Delhi NCR.
+                        </p>
+                        <a href="#packages" className="inline-block bg-gradient-to-r from-[#D4AF37] to-yellow-500 text-[#0F172A] px-10 py-4 rounded-full font-bold shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] hover:-translate-y-1 transition-all duration-300">
+                            Explore Fleet
+                        </a>
+                    </div>
                 </div>
             </section>
 
-            {/* Packages */}
-            <section id="packages" className="py-20 bg-gray-50">
-                <div className="container mx-auto px-6">
-                    <h2 className="text-3xl font-serif font-bold text-center mb-16 text-[#0F172A]">Our <span className="text-[#D4AF37]">Packages</span></h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Packages (Full Width Container, High-End Cards) */}
+            <section id="packages" className="py-24 bg-gray-50 w-full">
+                <div className="w-full max-w-[1600px] mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl font-serif font-bold text-[#0F172A]">Our <span className="text-[#D4AF37]">Premium Fleet</span></h2>
+                        <div className="w-24 h-1 bg-[#D4AF37] mx-auto mt-4 rounded-full"></div>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                         {carsList.map((car, index) => (
-                            <div key={index} className="bg-white rounded border border-gray-200 overflow-hidden shadow-sm hover:-translate-y-3 hover:shadow-xl transition-all duration-300">
-                                <div className="h-48 bg-gray-200"><img src={car.image} alt={car.name} className="w-full h-full object-cover" /></div>
-                                <div className="p-6 text-center">
-                                    <h4 className="text-lg font-bold text-[#0F172A] mb-4">{car.name}</h4>
-                                    <button onClick={() => openBookingModal(car.name)} className="bg-[#0F172A] text-white px-6 py-2 rounded text-sm hover:bg-gray-800">Book Now</button>
+                            <div key={index} className="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-md hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
+                                <div className="h-56 bg-gray-100 overflow-hidden flex items-center justify-center p-4">
+                                    <img src={car.image} alt={car.name} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700" />
+                                </div>
+                                <div className="p-8 text-center border-t border-gray-50">
+                                    <h4 className="text-xl font-bold text-[#0F172A] mb-6 tracking-wide">{car.name}</h4>
+                                    <button onClick={() => openBookingModal(car.name)} className="w-full bg-[#0F172A] text-white px-6 py-3 rounded-xl text-sm font-semibold hover:bg-[#D4AF37] hover:text-[#0F172A] transition-colors duration-300 shadow-md">
+                                        Book Now
+                                    </button>
                                 </div>
                             </div>
                         ))}
@@ -114,41 +132,63 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Imported Systematic Pricing Table */}
+            {/* Imported Systematic Pricing Table (Width controlled internally) */}
             <PricingTable />
 
-            {/* Contact Form */}
-            <section id="contact" className="py-20 bg-gray-50">
-                <div className="container mx-auto px-6 max-w-4xl bg-[#0F172A] p-8 text-white rounded shadow-xl">
-                    <h2 className="text-3xl font-serif font-bold text-center mb-8">Feel free <span className="text-[#D4AF37]">to connect</span></h2>
-                    <form onSubmit={submitContact} className="space-y-4 text-black">
-                        <div className="flex gap-4">
-                            <input type="text" placeholder="First Name" required className="w-1/2 p-2 rounded" onChange={e => setContactForm({...contactForm, firstName: e.target.value})} />
-                            <input type="text" placeholder="Last Name" required className="w-1/2 p-2 rounded" onChange={e => setContactForm({...contactForm, lastName: e.target.value})} />
+            {/* Contact Form (Full Width Glassmorphism) */}
+            <section id="contact" className="py-24 bg-[#0F172A] w-full relative overflow-hidden">
+                {/* Decorative background elements */}
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+                    <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#D4AF37] rounded-full blur-[100px]"></div>
+                    <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-600 rounded-full blur-[100px]"></div>
+                </div>
+
+                <div className="w-full max-w-[1200px] mx-auto px-6 relative z-10">
+                    <div className="bg-slate-800/40 backdrop-blur-xl border border-slate-700/50 p-10 md:p-16 rounded-[2rem] shadow-2xl">
+                        <div className="text-center mb-12">
+                            <h2 className="text-4xl font-serif font-bold text-white">Feel free <span className="text-[#D4AF37]">to connect</span></h2>
+                            <p className="text-gray-400 mt-3 font-light">Have a special request? Drop us a message.</p>
                         </div>
-                        <input type="text" placeholder="Query" required className="w-full p-2 rounded" onChange={e => setContactForm({...contactForm, query: e.target.value})} />
-                        <button type="submit" className="bg-green-500 text-white px-6 py-2 rounded font-bold hover:bg-green-600 mt-4">Send via WhatsApp</button>
-                    </form>
+                        
+                        <form onSubmit={submitContact} className="space-y-6">
+                            <div className="flex flex-col md:flex-row gap-6">
+                                <input type="text" placeholder="First Name" required className="w-full md:w-1/2 p-4 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all" onChange={e => setContactForm({...contactForm, firstName: e.target.value})} />
+                                <input type="text" placeholder="Last Name" required className="w-full md:w-1/2 p-4 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all" onChange={e => setContactForm({...contactForm, lastName: e.target.value})} />
+                            </div>
+                            <textarea placeholder="How can we help you?" required rows="4" className="w-full p-4 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all resize-none" onChange={e => setContactForm({...contactForm, query: e.target.value})}></textarea>
+                            
+                            <button type="submit" className="w-full md:w-auto md:px-12 bg-gradient-to-r from-green-500 to-green-600 text-white py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 mx-auto">
+                                <i className="fa-brands fa-whatsapp text-xl"></i> Send via WhatsApp
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </section>
 
             {/* Footer */}
-            <footer className="bg-[#0B1320] text-gray-300 py-12 text-center">
-                 <p><span onClick={handleAdminClick} className="cursor-default select-none">Copyright</span> © 2026 Zoom Cars All Rights Reserved</p>
+            <footer className="bg-[#070b14] text-gray-400 py-8 text-center border-t border-slate-800 w-full">
+                 <p className="font-light tracking-wide text-sm">
+                     <span onClick={handleAdminClick} className="cursor-default select-none">Copyright</span> © 2026 Zoom Cars. All Rights Reserved.
+                 </p>
             </footer>
 
-            {/* Booking Modal */}
+            {/* Booking Modal (Premium Styling) */}
             {modalOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-                    <div className="bg-white rounded-lg w-[90%] max-w-md p-6 relative">
-                        <button onClick={() => setModalOpen(false)} className="absolute top-4 right-4 text-2xl text-gray-500 hover:text-black">&times;</button>
-                        <h3 className="text-2xl font-serif font-bold mb-4">Book <span className="text-[#D4AF37]">{selectedCar}</span></h3>
-                        <form onSubmit={submitBooking} className="space-y-4">
-                            <input type="text" required placeholder="Full Name" className="w-full p-2 border rounded" onChange={e => setBookingForm({...bookingForm, name: e.target.value})} />
-                            <input type="tel" required placeholder="Phone Number" className="w-full p-2 border rounded" onChange={e => setBookingForm({...bookingForm, phone: e.target.value})} />
-                            <input type="date" required className="w-full p-2 border rounded" onChange={e => setBookingForm({...bookingForm, date: e.target.value})} />
-                            <input type="number" required placeholder="Days" className="w-full p-2 border rounded" onChange={e => setBookingForm({...bookingForm, days: e.target.value})} />
-                            <button type="submit" className="w-full bg-[#D4AF37] text-black font-bold py-3 rounded">Confirm on WhatsApp</button>
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0F172A]/80 backdrop-blur-md p-4">
+                    <div className="bg-white rounded-2xl w-full max-w-md p-8 relative shadow-2xl animate-[fadeIn_0.3s_ease-out]">
+                        <button onClick={() => setModalOpen(false)} className="absolute top-5 right-5 text-3xl text-gray-400 hover:text-gray-800 transition-colors">&times;</button>
+                        <h3 className="text-3xl font-serif font-bold mb-6 text-[#0F172A]">Book <span className="text-[#D4AF37]">{selectedCar}</span></h3>
+                        <form onSubmit={submitBooking} className="space-y-5">
+                            <input type="text" required placeholder="Full Name" className="w-full p-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] transition-colors" onChange={e => setBookingForm({...bookingForm, name: e.target.value})} />
+                            <input type="tel" required placeholder="Phone Number" className="w-full p-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] transition-colors" onChange={e => setBookingForm({...bookingForm, phone: e.target.value})} />
+                            <div className="relative">
+                                <label className="text-xs text-gray-500 absolute -top-2 left-3 bg-white px-1">Pick-up Date</label>
+                                <input type="date" required className="w-full p-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] transition-colors text-gray-700" onChange={e => setBookingForm({...bookingForm, date: e.target.value})} />
+                            </div>
+                            <input type="number" required placeholder="Number of Days" className="w-full p-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] transition-colors" onChange={e => setBookingForm({...bookingForm, days: e.target.value})} />
+                            <button type="submit" className="w-full bg-gradient-to-r from-[#D4AF37] to-yellow-500 text-[#0F172A] font-bold text-lg py-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 mt-2 flex items-center justify-center gap-2">
+                                <i className="fa-brands fa-whatsapp text-xl"></i> Confirm Booking
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -156,10 +196,11 @@ export default function Home() {
             
             {/* Notification Toast */}
             {showNotification && (
-                <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-2xl z-50 text-center w-[90%] max-w-sm border-t-4 border-[#D4AF37]">
-                    <button onClick={() => setShowNotification(false)} className="absolute top-2 right-4 text-xl">&times;</button>
-                    <h4 className="font-bold text-[#0F172A] text-xl mb-2">Need help booking?</h4>
-                    <a href="tel:+919667597460" className="inline-block bg-[#0F172A] text-white w-full py-3 rounded font-bold">Call Us Now</a>
+                <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-xl p-8 rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.2)] z-50 text-center w-[90%] max-w-sm border-t-4 border-[#D4AF37]">
+                    <button onClick={() => setShowNotification(false)} className="absolute top-3 right-4 text-2xl text-gray-400 hover:text-gray-800">&times;</button>
+                    <h4 className="font-bold text-[#0F172A] text-2xl mb-3">Need help booking?</h4>
+                    <p className="text-gray-600 mb-6 font-light">Speak directly with our premium support team.</p>
+                    <a href="tel:+919667597460" className="inline-block bg-gradient-to-r from-[#0F172A] to-slate-800 text-white w-full py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all">Call Us Now</a>
                 </div>
             )}
         </div>
