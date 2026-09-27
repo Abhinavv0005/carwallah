@@ -63,7 +63,7 @@ export default function Home() {
     };
 
     return (
-        <div className="font-sans bg-gray-50 relative overflow-x-hidden w-full">
+        <div className="font-sans bg-gray-50 relative overflow-x-hidden w-full min-h-screen">
             
             {/* Header (Premium Glassmorphism) */}
             <header className="fixed w-full top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all">
@@ -79,7 +79,7 @@ export default function Home() {
             </header>
 
             {/* Hero (Full Width, Premium Gradient) */}
-            <section id="home" className="min-h-[80vh] flex items-center relative overflow-hidden bg-gradient-to-br from-[#0F172A] via-[#1a2333] to-[#0F172A] w-full pt-20">
+            <section id="home" className="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-[#0F172A] via-[#1a2333] to-[#0F172A] w-full pt-20">
                 <div className="w-full max-w-[1600px] mx-auto px-6 relative z-10 text-white flex flex-col md:flex-row items-center justify-between">
                     <div className="w-full md:w-1/2 text-center md:text-left py-16">
                         <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight tracking-tight">
