@@ -51,15 +51,15 @@ export default function Home() {
 
     const submitBooking = (e) => {
         e.preventDefault();
-        const message = `Hello Zoom Cars! I want to book a car.%0A%0A🚘 *Car Model:* ${selectedCar}%0A👤 *Name:* ${bookingForm.name}%0A📞 *Contact:* ${bookingForm.phone}%0A📅 *Pick-up Date:* ${bookingForm.date}%0A⏳ *Duration:* ${bookingForm.days} Days`;
-        window.open(`https://wa.me/919667597460?text=${message}`, '_blank');
+        const message = `Hello Carwallah! I want to book a car.%0A%0A🚘 *Car Model:* ${selectedCar}%0A👤 *Name:* ${bookingForm.name}%0A📞 *Contact:* ${bookingForm.phone}%0A📅 *Pick-up Date:* ${bookingForm.date}%0A⏳ *Duration:* ${bookingForm.days} Days`;
+        window.open(`https://wa.me/918595300552?text=${message}`, '_blank');
         setModalOpen(false);
     };
 
     const submitContact = (e) => {
         e.preventDefault();
-        const message = `Hello Zoom Cars! Here is my inquiry:%0A%0A*Name:* ${contactForm.firstName} ${contactForm.lastName}%0A*Query:* ${contactForm.query}%0A*Location:* ${contactForm.city}, ${contactForm.state} - ${contactForm.zipCode}`;
-        window.open(`https://wa.me/919667597460?text=${message}`, '_blank');
+        const message = `Hello Carwallah! Here is my inquiry:%0A%0A*Name:* ${contactForm.firstName} ${contactForm.lastName}%0A*Query:* ${contactForm.query}%0A*Location:* ${contactForm.city}, ${contactForm.state} - ${contactForm.zipCode}`;
+        window.open(`https://wa.me/918595300552?text=${message}`, '_blank');
     };
 
     return (
@@ -68,13 +68,13 @@ export default function Home() {
             {/* Header (Premium Glassmorphism) */}
             <header className="fixed w-full top-0 z-40 bg-white/80 backdrop-blur-md border-b border-[#E8E3DA] shadow-sm transition-all">
                 <div className="w-full px-4 md:px-12 py-3 md:py-4 flex justify-between items-center">
-                    <img src="img/logo.png" alt="Zoom Cars" className="h-10 md:h-16 object-contain" />
+                    <img src="img/logo.png" alt="Carwallah" className="h-10 md:h-16 object-contain" />
                     <nav className="hidden md:flex space-x-10 font-medium text-[#5C5751]">
                         <a href="#home" className="hover:text-[#D4AF37] transition-colors">Home</a>
                         <a href="#packages" className="hover:text-[#D4AF37] transition-colors">Packages</a>
                         <a href="#contact" className="hover:text-[#D4AF37] transition-colors">Contact Us</a>
                     </nav>
-                    <a href="tel:+919667597460" className="bg-gradient-to-r from-[#38332E] to-[#24211D] text-[#FDFBF7] text-sm md:text-base px-5 py-2 md:px-8 md:py-3 rounded-full font-semibold shadow-[0_8px_20px_rgba(44,41,38,0.2)] hover:shadow-[0_12px_25px_rgba(44,41,38,0.3)] hover:scale-105 transition-all duration-300">Call Now</a>
+                    <a href="tel:+918595300552" className="bg-gradient-to-r from-[#38332E] to-[#24211D] text-[#FDFBF7] text-sm md:text-base px-5 py-2 md:px-8 md:py-3 rounded-full font-semibold shadow-[0_8px_20px_rgba(44,41,38,0.2)] hover:shadow-[0_12px_25px_rgba(44,41,38,0.3)] hover:scale-105 transition-all duration-300">Call Now</a>
                 </div>
             </header>
 
@@ -84,7 +84,7 @@ export default function Home() {
                     <div className="w-full md:w-1/2 text-center md:text-left py-12 md:py-16">
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold mb-4 md:mb-6 leading-tight tracking-tight text-[#2C2926]">
                             Welcome To <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#B89222]">Zoom Cars</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#B89222]">Car wallah</span>
                         </h1>
                         <p className="text-base sm:text-lg md:text-xl text-[#5C5751] mb-8 md:mb-10 max-w-lg mx-auto md:mx-0 font-light tracking-wide leading-relaxed">
                             Experience the luxury of freedom. Reliable and premium car rental services across Delhi NCR.
@@ -161,7 +161,7 @@ export default function Home() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-10 md:mb-12 text-center md:text-left">
                         {/* Column 1: Brand & Description */}
                         <div className="flex flex-col items-center md:items-start">
-                            <img src="img/logo.png" alt="Zoom Cars" className="h-10 md:h-12 mb-4 md:mb-5 object-contain opacity-80" />
+                            <img src="img/logo.png" alt="carwallah" className="h-10 md:h-12 mb-4 md:mb-5 object-contain opacity-80" />
                             <p className="font-light leading-relaxed text-sm max-w-sm">
                                 Experience the luxury of freedom. Reliable and premium car rental services across Delhi NCR. We provide top-tier vehicles for all your travel needs.
                             </p>
@@ -185,15 +185,15 @@ export default function Home() {
                             <h4 className="text-[#2C2926] font-bold mb-4 md:mb-5 uppercase tracking-wider text-sm">Contact Us</h4>
                             <ul className="space-y-4 font-light text-sm flex flex-col items-center md:items-start">
                                 <li>
-                                    <a href="tel:+919667597460" className="flex items-center gap-3 hover:text-[#D4AF37] transition-colors w-fit">
+                                    <a href="tel:+918595300552" className="flex items-center gap-3 hover:text-[#D4AF37] transition-colors w-fit">
                                         <i className="fa-solid fa-phone text-[#D4AF37]"></i>
-                                        +91 96675 97460
+                                        +91 8595300552
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="mailto:info@zoomcars.com" className="flex items-center gap-3 hover:text-[#D4AF37] transition-colors w-fit">
+                                    <a href="mailto:teamcarwallah@gmail.com" className="flex items-center gap-3 hover:text-[#D4AF37] transition-colors w-fit">
                                         <i className="fa-solid fa-envelope text-[#D4AF37]"></i>
-                                        info@zoomcars.com
+                                        info@carwallah.com
                                     </a>
                                 </li>
                                 <li>
@@ -209,7 +209,7 @@ export default function Home() {
                     {/* Copyright & Secret Admin Link */}
                     <div className="text-center border-t border-[#D9D3C7] pt-6 md:pt-8 mt-6 md:mt-8">
                          <p className="font-light tracking-wide text-xs md:text-sm">
-                             <span onClick={handleAdminClick} className="cursor-default select-none hover:text-[#D4AF37] transition-colors">Copyright</span> © 2026 Zoom Cars. All Rights Reserved.
+                             <span onClick={handleAdminClick} className="cursor-default select-none hover:text-[#D4AF37] transition-colors">Copyright</span> © 2026 Carwallah. All Rights Reserved.
                          </p>
                     </div>
                 </div>
@@ -243,7 +243,7 @@ export default function Home() {
                     <button onClick={() => setShowNotification(false)} className="absolute top-2 right-3 md:top-3 md:right-4 text-2xl text-[#8A847A] hover:text-[#2C2926]">&times;</button>
                     <h4 className="font-bold text-[#2C2926] text-xl md:text-2xl mb-2 md:mb-3">Need help booking?</h4>
                     <p className="text-[#5C5751] text-sm md:text-base mb-5 md:mb-6 font-light">Speak directly with our premium support team.</p>
-                    <a href="tel:+919667597460" className="inline-block bg-gradient-to-r from-[#38332E] to-[#24211D] text-[#FDFBF7] text-sm md:text-base w-full py-3.5 md:py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all">Call Us Now</a>
+                    <a href="tel:+918595300552" className="inline-block bg-gradient-to-r from-[#38332E] to-[#24211D] text-[#FDFBF7] text-sm md:text-base w-full py-3.5 md:py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all">Call Us Now</a>
                 </div>
             )}
         </div>
