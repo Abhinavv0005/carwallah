@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Project Collaboration Tags -->
+    <meta name="author" content="Abhinav Kumar Singh & Gemini">
+    <meta name="generator" content="Built with the help of Gemini AI">
+    
+    <title>Zoom Cars</title>
+    
+    <!-- ADD YOUR FAVICON HERE -->
+    <link rel="icon" type="image/png" href="img/fav.png">
+
+    <!-- Tailwind CSS for rapid, professional styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0F172A',
+                        'brand-gold': '#D4AF37',
+                        'brand-light': '#F8FAFC'
+                    },
+                    fontFamily: {
+                        'serif': ['Georgia', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Hero Background */
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9) 40%, rgba(15, 23, 42, 0.3) 100%), url('img/thar-cover.png');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: #e5e7eb;
+            margin: 10px auto 0;
+        }
+
+        /* Premium Hover Animation for Packages Cards */
+        #packages .grid > div {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            border: 1px solid #e5e7eb; 
+        }
+        
+        #packages .grid > div:hover {
+            transform: translateY(-12px) !important;
+            box-shadow: 0 20px 25px -5px rgba(212, 175, 55, 0.15), 0 8px 10px -6px rgba(212, 175, 55, 0.1) !important; 
+            border-color: #D4AF37 !important; 
+        }
+
+        #packages .grid > div img {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+
+        #packages .grid > div:hover img {
+            transform: scale(1.12) !important;
+        }
+
+        /* --- NEW: Car Loader Animation --- */
+        @keyframes driveAcross {
+            0% { transform: translateX(-100vw); }
+            100% { transform: translateX(100vw); }
+        }
+        .car-loader-anim {
+            animation: driveAcross 4.0s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+    </style>
+</head>
+<body class="font-sans bg-white relative overflow-x-hidden">
+
+    <!-- --- NEW: Animated Preloader Screen --- -->
+    <div id="preloader" class="fixed inset-0 z-[99999] bg-brand-dark flex items-center justify-center overflow-hidden transition-opacity duration-700">
+        <img src="img/transparent-car.png" alt="Loading..." class="car-loader-anim w-64 md:w-80 absolute drop-shadow-2xl">
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-4 left-4 md:bottom-8 md:left-8 flex flex-col gap-3 z-50">
+        <a href="https://wa.me/919667597460" aria-label="WhatsApp" class="bg-green-500 text-white w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full shadow-xl hover:bg-green-600 hover:-translate-y-1 transition-all duration-300">
+            <i class="fab fa-whatsapp text-2xl md:text-3xl"></i>
+        </a>
+        <a href="tel:+91-9667597460" aria-label="Call Us" class="bg-blue-500 text-white w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full shadow-xl hover:bg-blue-600 hover:-translate-y-1 transition-all duration-300">
+            <i class="fas fa-phone-alt text-xl md:text-2xl"></i>
+        </a>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#home" class="block transition hover:opacity-90">
+                <img src="img/logo.png" alt="Zoom Cars Logo" class="h-12 md:h-16 w-auto object-contain">
+                </a>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 font-semibold text-gray-800">
+                <a href="#home" class="hover:text-brand-gold transition">Home</a>
+                <a href="#services" class="hover:text-brand-gold transition">Services List</a>
+                <a href="#packages" class="hover:text-brand-gold transition">Our Packages</a>
+                <a href="#about" class="hover:text-brand-gold transition">About Us</a>
+                <a href="#contact" class="hover:text-brand-gold transition">Contact Us</a>
+            </nav>
+
+            <div class="block">
+                <a href="tel:+91-9667597460" class="bg-brand-dark text-white px-4 py-2 md:px-8 md:py-3 rounded-md font-bold shadow hover:bg-gray-800 transition block text-center text-sm md:text-base">
+                    Call Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-[600px] flex items-center relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-2xl text-white">
+                <h1 class="text-5xl font-serif font-bold mb-4 leading-tight">
+                    Welcome To <br> <span class="text-white">Zoom Cars</span>
+                </h1>
+                <p class="text-lg text-gray-200 mb-8 max-w-lg">
+                    Zoom Cars is among the most reliable and affordable car rental services in Delhi NCR, offering smooth, comfortable, and hassle-free travel options for every customer.
+                </p>
+            </div>
+        </div>
+        <div class="absolute bottom-0 right-[-5%] w-3/4 md:w-1/2 z-0 hidden md:block">
+            <img src="img/fortuner.png" alt="Car" class="w-full object-contain opacity-90 drop-shadow-2xl mix-blend-lighten" style="transform: scaleX(-1);">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-serif font-bold text-center mb-12 section-title text-white">Our <span class="text-brand-gold">Services</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md text-left">
+                    <div class="bg-gray-800 text-white w-12 h-12 flex items-center justify-center rounded mb-6">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-dark">24/7 CAR SUPPORT</h4>
+                    <p class="text-gray-600 mb-6 text-sm">Round-the-clock assistance to ensure your journey stays smooth, safe, and worry-free.</p>
+                    <a href="tel:+91-9667597460" class="bg-brand-dark text-white px-6 py-2 rounded text-sm hover:bg-gray-800 transition">Call Now</a>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md text-left">
+                    <div class="bg-gray-800 text-white w-12 h-12 flex items-center justify-center rounded mb-6">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-dark">RESERVE ANYTIME</h4>
+                    <p class="text-gray-600 mb-6 text-sm">Book your preferred car instantly—anytime, anywhere—for complete convenience and flexibility.</p>
+                    <a href="tel:+91-9667597460" class="bg-brand-dark text-white px-6 py-2 rounded text-sm hover:bg-gray-800 transition">Call Now</a>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-md text-left">
+                    <div class="bg-gray-800 text-white w-12 h-12 flex items-center justify-center rounded mb-6">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-dark">MULTIPLE LOCATIONS</h4>
+                    <p class="text-gray-600 mb-6 text-sm">Enjoy easy access to our services with pick-up and drop-off points available across major locations.</p>
+                    <a href="tel:+91-9667597460" class="bg-brand-dark text-white px-6 py-2 rounded text-sm hover:bg-gray-800 transition">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-serif font-bold text-center mb-16 section-title text-brand-dark">Our <span class="text-brand-gold">Packages</span></h2>
+            
+            <div id="carsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Cars will be injected here via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Table Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6 overflow-x-auto">
+            <table class="w-full text-left border-collapse min-w-[800px]">
+                <thead>
+                    <tr class="bg-brand-dark text-white text-sm uppercase tracking-wider">
+                        <th class="p-4 border-b border-gray-700">CARS MODELS</th>
+                        <th class="p-4 border-b border-gray-700">01 TO 04 DAYS</th>
+                        <th class="p-4 border-b border-gray-700">05 TO 10 DAYS</th>
+                        <th class="p-4 border-b border-gray-700">11 TO 20 DAYS</th>
+                        <th class="p-4 border-b border-gray-700">01 MONTH</th>
+                    </tr>
+                </thead>
+                <tbody id="ratesTableBody" class="text-gray-800 text-sm bg-[#fcfbf5]">
+                    <tr><td colspan="5" class="p-4 text-center">Loading rates...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-serif font-bold text-center mb-16 section-title text-brand-dark">About <span class="text-brand-gold">Us</span></h2>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h3 class="text-3xl font-serif font-bold text-brand-dark mb-6">Zoom <span class="text-brand-gold">Cars</span></h3>
+                    <p class="text-gray-600 leading-relaxed mb-6 text-justify">
+                        Renting a car is one of the easiest and most budget-friendly ways to move around the city or head out on a long journey — all without the responsibilities that come with owning a vehicle. Car rental companies provide a variety of options to match your needs, whether you prefer an economical car or a high-end luxury model. While selecting a rental service, it's important to keep a few key points in mind. Start by checking the company's location. Many rental providers have convenient pick-up and drop-off facilities at airports, railway stations, and popular city points — making travel smoother for both business and leisure trips. Next, compare the rental prices. Although most companies offer attractive packages, make sure to look for any extra costs, including taxes or service charges. It's also essential to choose the right type of car. Families often benefit from spacious SUVs or MPVs, while couples may prefer compact cars ideal for short trips or romantic getaways. When reaching out to the rental provider, be clear about your travel plans, total passengers, and luggage requirements. This helps the company recommend the most suitable vehicle for a comfortable and stress-free journey.
+                    </p>
+                    <a href="#" class="inline-block bg-brand-dark text-white px-8 py-3 rounded hover:bg-gray-800 transition font-medium">Read More</a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=1036&auto=format&fit=crop" alt="About Car" class="w-full h-auto rounded shadow-lg border border-gray-200">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-serif font-bold text-center mb-12 section-title text-brand-dark">Feel free <span class="text-brand-gold">to connect</span></h2>
+            
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row shadow-xl">
+                <div class="bg-brand-dark p-8 md:w-1/2 text-white">
+                    <form id="whatsappForm" class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="w-1/2">
+                                <label class="block text-xs mb-1">First Name</label>
+                                <input type="text" id="firstName" placeholder="First Name" required 
+                                       pattern="[A-Za-z\s]+" title="Please enter letters only"
+                                       oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')" 
+                                       class="w-full p-2 rounded text-gray-800 focus:outline-none">
+                            </div>
+                            <div class="w-1/2">
+                                <label class="block text-xs mb-1">Last Name</label>
+                                <input type="text" id="lastName" placeholder="Last Name" required 
+                                       pattern="[A-Za-z\s]+" title="Please enter letters only"
+                                       oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')" 
+                                       class="w-full p-2 rounded text-gray-800 focus:outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs mb-1">Query</label>
+                            <input type="text" id="userQuery" placeholder="Any Query?" required class="w-full p-2 rounded text-gray-800 focus:outline-none">
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-1/3">
+                                <label class="block text-xs mb-1">City</label>
+                                <input type="text" id="city" list="ncr-cities" placeholder="City" class="w-full p-2 rounded text-gray-800 focus:outline-none">
+                                <datalist id="ncr-cities">
+                                    <option value="New Delhi">
+                                    <option value="Noida">
+                                    <option value="Greater Noida">
+                                    <option value="Gurugram">
+                                    <option value="Faridabad">
+                                    <option value="Ghaziabad">
+                                    <option value="Sonipat">
+                                    <option value="Meerut">
+                                </datalist>
+                            </div>
+                            <div class="w-1/3">
+                                <label class="block text-xs mb-1">State</label>
+                                <input type="text" id="state" list="ncr-states" placeholder="State" class="w-full p-2 rounded text-gray-800 focus:outline-none">
+                                <datalist id="ncr-states">
+                                    <option value="Delhi">
+                                    <option value="Uttar Pradesh">
+                                    <option value="Haryana">
+                                    <option value="Rajasthan">
+                                </datalist>
+                            </div>
+                            <div class="w-1/3">
+                                <label class="block text-xs mb-1">Zip</label>
+                                <input type="text" id="zipCode" placeholder="Zip" class="w-full p-2 rounded text-gray-800 focus:outline-none">
+                            </div>
+                        </div>
+                        <button type="submit" class="bg-green-500 text-white px-6 py-2 rounded font-bold hover:bg-green-600 transition mt-4 flex items-center gap-2">
+                            <i class="fab fa-whatsapp text-lg"></i> Send via WhatsApp
+                        </button>
+                    </form>
+                </div>
+                <div class="md:w-1/2 bg-white p-2">
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1000&auto=format&fit=crop" alt="Connect Car" class="w-full h-full object-cover">
+                </div>
+            </div>
+            
+            <script>
+                document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+                    e.preventDefault(); 
+                    const firstName = document.getElementById('firstName').value.trim();
+                    const lastName = document.getElementById('lastName').value.trim();
+                    const userQuery = document.getElementById('userQuery').value.trim();
+                    const city = document.getElementById('city').value.trim();
+                    const state = document.getElementById('state').value.trim();
+                    const zipCode = document.getElementById('zipCode').value.trim();
+                    const message = `Hello Zoom Cars! Here is my inquiry:%0A%0A*Name:* ${firstName} ${lastName}%0A*Query:* ${userQuery}%0A*Location:* ${city}, ${state} - ${zipCode}`;
+                    const whatsappNumber = "919667597460"; 
+                    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+                    window.open(whatsappUrl, '_blank');
+                });
+            </script>        
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0B1320] text-gray-300 py-12 border-t-4 border-brand-gold">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h4 class="text-brand-gold font-bold mb-4">About Us</h4>
+                <p class="text-xs leading-relaxed">Renting a car is one of the easiest and most budget-friendly ways to move around the city or head out on a long journey.</p>
+            </div>
+            <div>
+                <h4 class="text-brand-gold font-bold mb-4">OUR WEB</h4>
+                <ul class="text-xs space-y-2">
+                    <li><a href="#home" class="hover:text-white transition">Home</a></li>
+                    <li><a href="#services" class="hover:text-white transition">SERVICES</a></li>
+                    <li><a href="#about" class="hover:text-white transition">ABOUT</a></li>
+                    <li><a href="#contact" class="hover:text-white transition">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-brand-gold font-bold mb-4">FACILITIES</h4>
+                <ul class="text-xs space-y-2">
+                    <li>Scorpio</li>
+                    <li>Baleno</li>
+                    <li>Thar</li>
+                    <li>Ertiga</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Thanks for visiting</h4>
+                <ul class="text-xs space-y-3">
+                    <li><i class="fas fa-map-marker-alt mr-2"></i> Address - OC- 435, Gaur City Center, Greater Noida, Uttar Pradesh</li>
+                    <li><i class="fas fa-envelope mr-2"></i> E-mail - rohitnagar9650@gmail.com</li>
+                    <li><i class="fas fa-phone mr-2"></i> Phone - +91-9667597460</li>
+                </ul>
+                <div class="mt-4 flex space-x-4">
+                    <a href="#" class="text-white hover:text-brand-gold"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white hover:text-brand-gold"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white hover:text-brand-gold"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-8 pt-6 border-t border-gray-700 text-center text-xs">
+            <p><span id="adminTrigger" class="cursor-default select-none">Copyright</span> © 2026 Zoom Cars All Rights Reserved |<i class="fas fa-laptop-code ml-1"></i></p>
+        </div>
+
+        <script>
+            let clickCount = 0;
+            let clickTimer;
+            document.getElementById('adminTrigger').addEventListener('click', function() {
+                clickCount++;
+                if (clickCount === 5) {
+                    window.location.href = 'admin.php'; // Note: admin.php will not process forms on Cloudflare Pages
+                }
+                clearTimeout(clickTimer);
+                clickTimer = setTimeout(function() {
+                    clickCount = 0;
+                }, 2000);
+            });
+        </script>
+    </footer>
+
+    <!-- Preloader Removal Script -->
+    <script>
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 700);
+            }, 1000);
+        });
+    </script>
+    
+    <!-- Modal HTML -->
+    <div id="bookingModal" class="fixed inset-0 z-[100000] flex items-center justify-center bg-brand-dark/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-lg shadow-2xl w-[90%] max-w-md overflow-hidden relative transform transition-all scale-95 duration-300" id="modalContent">
+            
+            <div class="bg-brand-dark p-5 flex justify-between items-center text-white border-b-4 border-brand-gold">
+                <h3 class="text-2xl font-serif font-bold">Book <span id="modalCarName" class="text-brand-gold">Car</span></h3>
+                <button id="closeModalBtn" class="text-gray-400 hover:text-white text-3xl leading-none transition-colors">&times;</button>
+            </div>
+            
+            <div class="p-6">
+                <form id="modalBookingForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
+                        <input type="text" id="modalName" required placeholder="Enter your name" class="w-full p-2.5 border border-gray-300 rounded focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Phone Number</label>
+                        <input type="tel" id="modalPhone" required placeholder="Your contact number" class="w-full p-2.5 border border-gray-300 rounded focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all">
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-1/2">
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Pick-up Date</label>
+                            <input type="date" id="modalDate" required class="w-full p-2.5 border border-gray-300 rounded focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all">
+                        </div>
+                        <div class="w-1/2">
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Duration (Days)</label>
+                            <input type="number" id="modalDays" min="1" placeholder="e.g. 3" required class="w-full p-2.5 border border-gray-300 rounded focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full bg-brand-gold text-brand-dark font-bold py-3 rounded mt-6 hover:bg-yellow-500 transition-all shadow-lg flex items-center justify-center gap-2 text-lg">
+                        <i class="fab fa-whatsapp text-xl"></i> Confirm on WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Client-Side Javascript Replacements for PHP Logic -->
+    <script>
+        // 1. CAR GRID INJECTION (Replaces PHP foreach loop)
+        const cars = [
+            {name: 'BALENO', image: 'img/BALENO.png'},
+            {name: 'SWIFT', image: 'img/swifts.png'},
+            {name: 'CRETA', image: 'img/creta.png'},
+            {name: 'VENUE', image: 'img/VENUE.png'},
+            {name: 'BREZZA', image: 'img/BREZZA.png'},
+            {name: 'GRAND VITARA', image: 'img/GRAND VITARA.png'},
+            {name: 'THAR', image: 'img/THAR.png'},
+            {name: 'ERTIGA', image: 'img/ERTIGA.png'},
+            {name: 'SCORPIO N', image: 'img/SCORPIO N.png'},
+            {name: 'TATA SAFARI', image: 'img/TATA SAFARI.png'},
+            {name: 'FORTUNER', image: 'img/fortuner.png'},
+            {name: 'DEFENDER', image: 'img/Defender.png'}
+        ];
+
+        const carsGrid = document.getElementById('carsGrid');
+        cars.forEach(car => {
+            carsGrid.innerHTML += `
+                <div class="bg-white rounded border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition text-center relative z-10">
+                    <div class="h-48 bg-gray-200 overflow-hidden relative">
+                        <img src="${car.image}" alt="${car.name}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 relative bg-white z-20">
+                        <h4 class="text-lg font-bold text-brand-dark mb-4">${car.name}</h4>
+                        <a href="#contact" class="bg-brand-dark text-white px-6 py-2 rounded text-sm hover:bg-gray-800 transition">Book Now</a>
+                    </div>
+                </div>
+            `;
+        });
+
+        // 2. DYNAMIC RATES FETCH (Replaces PHP file_get_contents json_decode)
+        fetch('rates.json')
+            .then(response => response.json())
+            .then(rates => {
+                const tbody = document.getElementById('ratesTableBody');
+                if (rates && rates.length > 0) {
+                    tbody.innerHTML = '';
+                    rates.forEach(rate => {
+                        tbody.innerHTML += `
+                            <tr class="border-b border-gray-200 hover:bg-gray-100 transition">
+                                <td class="p-4">${rate.model}</td>
+                                <td class="p-4">${rate.days_1_4}</td>
+                                <td class="p-4">${rate.days_5_10}</td>
+                                <td class="p-4">${rate.days_11_20}</td>
+                                <td class="p-4">${rate.month}</td>
+                            </tr>
+                        `;
+                    });
+                } else {
+                    tbody.innerHTML = '<tr><td colspan="5" class="p-4 text-center">No rates currently available. Please update via Admin.</td></tr>';
+                }
+            })
+            .catch(error => {
+                console.error("Error loading rates:", error);
+                document.getElementById('ratesTableBody').innerHTML = '<tr><td colspan="5" class="p-4 text-center">No rates currently available. Please update via Admin.</td></tr>';
+            });
+
+        // 3. BOOKING MODAL LOGIC
+        (function() {
+            const modal = document.getElementById('bookingModal');
+            const modalContent = document.getElementById('modalContent');
+            const closeBtn = document.getElementById('closeModalBtn');
+            const form = document.getElementById('modalBookingForm');
+            const carNameDisplay = document.getElementById('modalCarName');
+            let selectedCar = "Car";
+
+            document.addEventListener('click', function(e) {
+                const link = e.target.closest('a');
+                if (link && link.getAttribute('href') === '#contact' && link.textContent.trim().toLowerCase() === 'book now') {
+                    e.preventDefault(); 
+                    const container = link.parentElement;
+                    const titleElement = container.querySelector('h4');
+                    
+                    if (titleElement) {
+                        selectedCar = titleElement.textContent.trim();
+                        carNameDisplay.textContent = selectedCar;
+                    }
+                    
+                    modal.classList.remove('hidden');
+                    setTimeout(() => {
+                        modal.classList.remove('opacity-0');
+                        modalContent.classList.remove('scale-95');
+                        modalContent.classList.add('scale-100');
+                    }, 10);
+                }
+            });
+
+            const closeModal = () => {
+                modal.classList.add('opacity-0');
+                modalContent.classList.remove('scale-100');
+                modalContent.classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+            };
+
+            closeBtn.addEventListener('click', closeModal);
+            
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('modalName').value.trim();
+                const phone = document.getElementById('modalPhone').value.trim();
+                const date = document.getElementById('modalDate').value;
+                const days = document.getElementById('modalDays').value;
+
+                const message = `Hello Zoom Cars! I want to book a car.%0A%0A🚘 *Car Model:* ${selectedCar}%0A👤 *Name:* ${name}%0A📞 *Contact:* ${phone}%0A📅 *Pick-up Date:* ${date}%0A⏳ *Duration:* ${days} Days`;
+                
+                const whatsappNumber = "919667597460"; 
+                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+                
+                window.open(whatsappUrl, '_blank');
+                
+                form.reset();
+                closeModal();
+            });
+        })();
+    </script>
+    
+    <!-- 5-SECOND CENTERED NOTIFICATION TOAST -->
+    <div id="autoNotification" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border-t-4 border-brand-gold shadow-[0_0_50px_rgba(0,0,0,0.3)] rounded-lg p-6 w-[90%] max-w-sm md:max-w-md z-[60] opacity-0 scale-90 transition-all duration-500 flex flex-col items-center text-center pointer-events-none">
+        <button id="closeNotificationBtn" class="absolute top-3 right-4 text-gray-400 hover:text-gray-800 transition-colors leading-none pointer-events-auto text-3xl">&times;</button>
+        
+        <div class="bg-brand-gold/20 p-4 rounded-full text-brand-gold mb-4 mt-2">
+            <i class="fas fa-headset text-3xl"></i>
+        </div>
+        
+        <div class="w-full">
+            <h4 class="font-bold text-brand-dark text-xl md:text-2xl mb-2">Need help booking?</h4>
+            <p class="text-sm md:text-base text-gray-600 mb-6 px-2">We are here to help you choose the perfect car for your journey. Get in touch instantly!</p>
+            <a href="tel:+91-9667597460" class="inline-block bg-brand-dark text-white w-full py-3 rounded hover:bg-gray-800 transition pointer-events-auto font-bold shadow-md text-sm md:text-base">
+                <i class="fas fa-phone-alt mr-2"></i> Call Us Now
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const notification = document.getElementById('autoNotification');
+            const closeNotifBtn = document.getElementById('closeNotificationBtn');
+
+            setTimeout(() => {
+                notification.classList.remove('opacity-0', 'scale-90', 'pointer-events-none');
+                notification.classList.add('opacity-100', 'scale-100');
+            }, 5000);
+
+            closeNotifBtn.addEventListener('click', () => {
+                notification.classList.remove('opacity-100', 'scale-100');
+                notification.classList.add('opacity-0', 'scale-90');
+                setTimeout(() => notification.style.display = 'none', 500);
+            });
+        });
+    </script>
+</body>
+</html>
