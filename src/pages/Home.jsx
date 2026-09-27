@@ -155,11 +155,65 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer className="bg-[#070b14] text-gray-400 py-8 text-center border-t border-slate-800 w-full">
-                 <p className="font-light tracking-wide text-sm">
-                     <span onClick={handleAdminClick} className="cursor-default select-none">Copyright</span> © 2026 Zoom Cars. All Rights Reserved.
-                 </p>
+            {/* Extended Multi-Column Footer */}
+            <footer className="bg-[#070b14] text-gray-400 pt-16 pb-8 border-t border-slate-800 w-full relative z-10">
+                <div className="w-full max-w-[1600px] mx-auto px-6 md:px-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                        {/* Column 1: Brand & Description */}
+                        <div>
+                            {/* Assuming you want the logo white/light in the dark footer. Using brightness/invert CSS trick, remove if your logo is already designed for dark backgrounds */}
+                            <img src="img/logo.png" alt="Zoom Cars" className="h-12 mb-5 object-contain brightness-0 invert opacity-90" />
+                            <p className="font-light leading-relaxed text-sm max-w-sm">
+                                Experience the luxury of freedom. Reliable and premium car rental services across Delhi NCR. We provide top-tier vehicles for all your travel needs.
+                            </p>
+                        </div>
+                        
+                        {/* Column 2: Address */}
+                        <div>
+                            <h4 className="text-white font-bold mb-5 uppercase tracking-wider text-sm">Our Location</h4>
+                            <p className="font-light text-sm flex items-start gap-3 leading-relaxed">
+                                <i className="fa-solid fa-location-dot mt-1 text-[#D4AF37]"></i>
+                                <span>
+                                    123 Premium Drive, Connaught Place,<br />
+                                    New Delhi, Delhi 110001,<br />
+                                    India
+                                </span>
+                            </p>
+                        </div>
+
+                        {/* Column 3: Contact Details */}
+                        <div>
+                            <h4 className="text-white font-bold mb-5 uppercase tracking-wider text-sm">Contact Us</h4>
+                            <ul className="space-y-4 font-light text-sm">
+                                <li>
+                                    <a href="tel:+919667597460" className="flex items-center gap-3 hover:text-[#D4AF37] transition-colors w-fit">
+                                        <i className="fa-solid fa-phone text-[#D4AF37]"></i>
+                                        +91 96675 97460
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:info@zoomcars.com" className="flex items-center gap-3 hover:text-[#D4AF37] transition-colors w-fit">
+                                        <i className="fa-solid fa-envelope text-[#D4AF37]"></i>
+                                        info@zoomcars.com
+                                    </a>
+                                </li>
+                                <li>
+                                    <div className="flex items-center gap-3">
+                                        <i className="fa-solid fa-clock text-[#D4AF37]"></i>
+                                        24/7 Premium Support
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    {/* Copyright & Secret Admin Link */}
+                    <div className="text-center border-t border-slate-800/80 pt-8 mt-8">
+                         <p className="font-light tracking-wide text-sm">
+                             <span onClick={handleAdminClick} className="cursor-default select-none hover:text-white transition-colors">Copyright</span> © 2026 Zoom Cars. All Rights Reserved.
+                         </p>
+                    </div>
+                </div>
             </footer>
 
             {/* Booking Modal (Premium Styling) */}
