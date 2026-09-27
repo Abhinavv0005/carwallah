@@ -67,7 +67,7 @@ export default function Home() {
             
             {/* Header (Premium Glassmorphism) */}
             <header className="fixed w-full top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all">
-                <div className="w-full max-w-[1600px] mx-auto px-6 py-4 flex justify-between items-center">
+                <div className="w-full px-6 md:px-12 py-4 flex justify-between items-center">
                     <img src="img/logo.png" alt="Zoom Cars" className="h-12 md:h-16 object-contain" />
                     <nav className="hidden md:flex space-x-10 font-medium text-gray-700">
                         <a href="#home" className="hover:text-[#D4AF37] transition-colors">Home</a>
@@ -80,7 +80,7 @@ export default function Home() {
 
             {/* Hero (Full Width, Premium Gradient, Now Full Screen Height) */}
             <section id="home" className="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-[#0F172A] via-[#1a2333] to-[#0F172A] w-full pt-20">
-                <div className="w-full max-w-[1600px] mx-auto px-6 relative z-10 text-white flex flex-col md:flex-row items-center justify-between">
+                <div className="w-full px-6 md:px-16 relative z-10 text-white flex flex-col md:flex-row items-center justify-between">
                     <div className="w-full md:w-1/2 text-center md:text-left py-16">
                         <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight tracking-tight">
                             Welcome To <br />
@@ -98,7 +98,7 @@ export default function Home() {
 
             {/* Packages (Full Width Container, High-End Cards) */}
             <section id="packages" className="py-24 bg-gray-50 w-full">
-                <div className="w-full max-w-[1600px] mx-auto px-6">
+                <div className="w-full px-6 md:px-12">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-serif font-bold text-[#0F172A]">Our <span className="text-[#D4AF37]">Premium Fleet</span></h2>
                         <div className="w-24 h-1 bg-[#D4AF37] mx-auto mt-4 rounded-full"></div>
@@ -133,14 +133,14 @@ export default function Home() {
                     <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-600 rounded-full blur-[100px]"></div>
                 </div>
 
-                <div className="w-full max-w-[1200px] mx-auto px-6 relative z-10">
+                <div className="w-full px-6 md:px-12 relative z-10">
                     <div className="bg-slate-800/40 backdrop-blur-xl border border-slate-700/50 p-10 md:p-16 rounded-[2rem] shadow-2xl">
                         <div className="text-center mb-12">
                             <h2 className="text-4xl font-serif font-bold text-white">Feel free <span className="text-[#D4AF37]">to connect</span></h2>
                             <p className="text-gray-400 mt-3 font-light">Have a special request? Drop us a message.</p>
                         </div>
                         
-                        <form onSubmit={submitContact} className="space-y-6">
+                        <form onSubmit={submitContact} className="space-y-6 max-w-4xl mx-auto">
                             <div className="flex flex-col md:flex-row gap-6">
                                 <input type="text" placeholder="First Name" required className="w-full md:w-1/2 p-4 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all" onChange={e => setContactForm({...contactForm, firstName: e.target.value})} />
                                 <input type="text" placeholder="Last Name" required className="w-full md:w-1/2 p-4 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all" onChange={e => setContactForm({...contactForm, lastName: e.target.value})} />
