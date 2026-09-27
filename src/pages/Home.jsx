@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PricingTable from '../components/PricingTable';
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+
+
 
 const carsList = [
     { name: 'BALENO', image: 'img/BALENO.png' },
