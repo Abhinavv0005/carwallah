@@ -79,7 +79,7 @@ export default function Home() {
             </header>
 
             {/* Hero (Full Width, Premium Light Gradient with Background Image, Full Screen Height) */}
-            <section id="home" className="min-h-screen flex items-center relative overflow-hidden bg-[url('img/hero-bg.png')] bg-cover bg-center bg-fixed w-full pt-20 md:pt-24 before:absolute before:inset-0 before:bg-gradient-to-br before:from-[#FDFBF7]/95 before:via-[#F4EFE6]/85 before:to-[#FDFBF7]/95">
+            <section id="home" className="min-h-screen flex items-center relative overflow-hidden bg-[url('img/hero-bg.jpg')] bg-cover bg-center bg-fixed w-full pt-20 md:pt-24 before:absolute before:inset-0 before:bg-gradient-to-br before:from-[#FDFBF7]/95 before:via-[#F4EFE6]/85 before:to-[#FDFBF7]/95">
                 <div className="w-full px-6 md:px-16 relative z-10 flex flex-col md:flex-row items-center justify-between">
                     <div className="w-full md:w-1/2 text-center md:text-left py-12 md:py-16">
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold mb-4 md:mb-6 leading-tight tracking-tight text-[#2C2926]">
